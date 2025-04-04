@@ -10,7 +10,6 @@ import java.util.Random;
 public class Measurements {
     public static void main(String[] args) {
         Rest rest = new Rest();
-        rest.put();
         rest.get();
     }
 }
