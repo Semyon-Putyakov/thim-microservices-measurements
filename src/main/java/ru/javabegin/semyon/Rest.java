@@ -9,14 +9,14 @@ import java.util.Map;
 import java.util.Random;
 
 public class Rest {
-    public void put(){
+    public void put() {
         RestTemplate restTemplate = new RestTemplate();
         String url = "http://localhost:8080/measurements/add";
 
         Map<String, Object> name = new HashMap<>();
         name.put("name", "test");
 
-        for(int i = 0; i < 1000; i++){
+        for (int i = 0; i < 1000; i++) {
             Map<String, Object> sensor = new HashMap<>();
             Random random = new Random();
             float min = -100.0f;
@@ -27,12 +27,13 @@ public class Rest {
             sensor.put("raining", bool);
             sensor.put("sensor", name);
 
-            HttpEntity<Map<String,Object>> request = new HttpEntity<>(sensor);
-            String response = restTemplate.postForObject(url,request,String.class);
+            HttpEntity<Map<String, Object>> request = new HttpEntity<>(sensor);
+            String response = restTemplate.postForObject(url, request, String.class);
             System.out.println(response);
         }
     }
-    public void get(){
+
+    public void get() {
         RestTemplate restTemplate = new RestTemplate();
 
         String url = "http://localhost:8080/measurements";
